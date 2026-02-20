@@ -1,5 +1,9 @@
 import pytest
 
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from src.product import Product
 from src.category import Category
 
@@ -28,8 +32,16 @@ def second_category():
 
 
 @pytest.fixture
-def product():
-    return Product("iPhone 15", "Смартфон Apple", 999.99, "Смартфоны", 10)
+def product1():
+    return Product("Телефон", "Смартфон", 50000, 10)
+
+@pytest.fixture
+def product2():
+    return Product("Книга", "Роман", 1000, 5)
+
+@pytest.fixture
+def product3():
+    return Product("Ручка", "Шариковая", 50, 100)
 
 @pytest.fixture
 def sample_product():
